@@ -1,8 +1,335 @@
 <!DOCTYPE html>
-<html>
-<head><title>Quantum Imperium</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Imperium — The Ethereum Backup Plan</title>
+    <meta name="description" content="Quantum Imperium is a Layer-1 blockchain designed to be quantum-safe by default, modular, and complementary to Ethereum.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quantum Imperium — The Ethereum Backup Plan">
+    <meta property="og:description" content="A quantum-safe, modular blockchain for the post-quantum era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quantumimperium.io">
+    <meta property="og:image" content="https://quantumimperium.io/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Imperium — The Ethereum Backup Plan">
+    <meta name="twitter:description" content="A quantum-safe, modular blockchain for the post-quantum era.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0f;
+            color: #e8e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 24px 0; border-bottom: 1px solid #1a1a2e; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+        .logo span { color: #6c5ce7; }
+        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { color: #a0a0b8; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: #e8e8f0; }
+        .btn-primary {
+            background: #6c5ce7;
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-primary:hover { background: #5a4bd1; transform: translateY(-1px); }
+        .btn-secondary {
+            background: transparent;
+            color: #a0a0b8 !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: 1px solid #2a2a44;
+            font-weight: 600;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-secondary:hover { border-color: #6c5ce7; color: #e8e8f0 !important; }
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+        }
+        .hero h1 .highlight { color: #6c5ce7; }
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #a0a0b8;
+            max-width: 640px;
+            margin: 0 auto 32px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #6c5ce7;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid #2a2a44;
+        }
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid #1a1a2e;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #a0a0b8;
+            max-width: 640px;
+            margin: 0 auto 48px;
+            font-size: 1.1rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .card {
+            background: #111121;
+            border: 1px solid #1a1a2e;
+            border-radius: 16px;
+            padding: 32px 24px;
+            transition: border-color 0.2s, transform 0.15s;
+        }
+        .card:hover { border-color: #2a2a44; transform: translateY(-4px); }
+        .card .icon { font-size: 32px; margin-bottom: 12px; }
+        .card h3 { font-size: 20px; margin-bottom: 8px; font-weight: 700; }
+        .card p { color: #a0a0b8; font-size: 15px; }
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .roadmap-item {
+            background: #111121;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #1a1a2e;
+            text-align: center;
+        }
+        .roadmap-item .phase { color: #6c5ce7; font-weight: 700; font-size: 14px; }
+        .roadmap-item .status { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; }
+        .status-done { color: #00c853; }
+        .status-progress { color: #ffd600; }
+        .status-next { color: #a0a0b8; }
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            border-top: 1px solid #1a1a2e;
+            text-align: center;
+            color: #606080;
+            font-size: 14px;
+        }
+        footer a { color: #a0a0b8; text-decoration: none; }
+        footer a:hover { color: #e8e8f0; }
+        .social-links { display: flex; gap: 20px; justify-content: center; margin: 16px 0; }
+        .social-links a { color: #606080; font-size: 20px; transition: color 0.2s; }
+        .social-links a:hover { color: #e8e8f0; }
+        @media (max-width: 640px) {
+            .header-content { flex-direction: column; align-items: center; }
+            .nav-links { gap: 16px; justify-content: center; }
+            .hero { padding: 48px 0; }
+            .section { padding: 48px 0; }
+        }
+    </style>
+</head>
 <body>
-<h1>Quantum Imperium</h1>
-<p>The Ethereum Backup Plan</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">✦ Quantum <span>Imperium</span></div>
+                <nav class="nav-links">
+                    <a href="#problem">Problem</a>
+                    <a href="#solution">Solution</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="https://github.com/Dev-Ceo26/quantum-imperium" target="_blank">GitHub</a>
+                    <a href="#testnet" class="btn-primary">Join Testnet</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="badge">🚀 Public Testnet — Q2 2026</div>
+                <h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
+                <p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
+                <div class="cta-group">
+                    <a href="#testnet" class="btn-primary">🚀 Join the Testnet</a>
+                    <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 Read White Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem" class="section">
+            <div class="container">
+                <h2 class="section-title">The Quantum Threat</h2>
+                <p class="section-subtitle">Quantum computers will break RSA and ECC within 10–15 years. Ethereum's PQC roadmap is complex and slow. The time to act is now.</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="icon">⚛️</div>
+                        <h3>Quantum Computing</h3>
+                        <p>Advances in quantum computing are accelerating. Current cryptographic standards will be obsolete within a decade.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">⏳</div>
+                        <h3>Ethereum's Delay</h3>
+                        <p>Ethereum's PQC roadmap requires multiple hard forks and years of transition. DeFi and treasuries remain exposed.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🛡️</div>
+                        <h3>Exposure Risk</h3>
+                        <p>Billions in assets are at risk. Institutions and projects need a quantum-safe solution today, not in 5 years.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="section" style="background: #0d0d18;">
+            <div class="container">
+                <h2 class="section-title">Our Solution</h2>
+                <p class="section-subtitle">Quantum Imperium is a Layer‑1 blockchain designed to be quantum‑safe by default.</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="icon">🔐</div>
+                        <h3>PQC Integrated</h3>
+                        <p>Kyber512 (KEM) + Dilithium2 (Signatures) — NIST finalized standards, implemented via liboqs.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">⚡</div>
+                        <h3>QPoS Consensus</h3>
+                        <p>Quantum Proof-of-Stake with Dilithium signatures. Validators are Guardians, staking 1000+ QBTC.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🧠</div>
+                        <h3>Quantum VM</h3>
+                        <p>Native PQC opcodes for signature verification. Smart contracts are quantum-safe by default.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🌉</div>
+                        <h3>Ethereum Bridge</h3>
+                        <p>Multi‑sig Guardian bridge for secure asset transfers between Ethereum and Quantum Imperium.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📦</div>
+                        <h3>IPFS + Tor</h3>
+                        <p>Decentralized storage and anonymous networking for resilience and privacy.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🔄</div>
+                        <h3>Modularity</h3>
+                        <p>Every component (PQC, consensus, VM) can be upgraded via configuration. Future‑proof by design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="section">
+            <div class="container">
+                <h2 class="section-title">Roadmap</h2>
+                <p class="section-subtitle">From prototype to mainnet — step by step.</p>
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <div class="phase">Phase 0</div>
+                        <h4>Working Prototype</h4>
+                        <p style="color:#a0a0b8; font-size:14px;">Core blockchain, API, Web UI</p>
+                        <span class="status status-done">✅ Completed Q1 2026</span>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase">Phase 1</div>
+                        <h4>Public Testnet</h4>
+                        <p style="color:#a0a0b8; font-size:14px;">Quantum Game, Guardian onboarding</p>
+                        <span class="status status-progress">🔄 Q2 2026</span>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase">Phase 2</div>
+                        <h4>Ethereum Bridge</h4>
+                        <p style="color:#a0a0b8; font-size:14px;">Audit, multi‑sig Guardian bridge</p>
+                        <span class="status status-next">📅 Q3 2026</span>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="phase">Phase 3</div>
+                        <h4>Mainnet + DAO</h4>
+                        <p style="color:#a0a0b8; font-size:14px;">On‑chain governance, tokenomics</p>
+                        <span class="status status-next">📅 Q4 2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testnet" class="section" style="background: #0d0d18;">
+            <div class="container" style="text-align: center;">
+                <h2 class="section-title">🚀 Join the Testnet</h2>
+                <p class="section-subtitle">Be among the first to participate in a quantum‑safe blockchain.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; max-width: 600px; margin: 0 auto;">
+                    <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
+                        <div style="font-size: 12px; color: #606080;">Step 1</div>
+                        <div style="font-weight: 600;">Clone</div>
+                        <code style="font-size: 13px; color: #6c5ce7;">git clone ...</code>
+                    </div>
+                    <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
+                        <div style="font-size: 12px; color: #606080;">Step 2</div>
+                        <div style="font-weight: 600;">Install</div>
+                        <code style="font-size: 13px; color: #6c5ce7;">pip install -r</code>
+                    </div>
+                    <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
+                        <div style="font-size: 12px; color: #606080;">Step 3</div>
+                        <div style="font-weight: 600;">Run</div>
+                        <code style="font-size: 13px; color: #6c5ce7;">python3 main.py</code>
+                    </div>
+                </div>
+                <div style="margin-top: 32px;">
+                    <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/testnet_guide.md" class="btn-primary" style="background: #6c5ce7;">📖 Full Guide</a>
+                    <a href="https://github.com/Dev-Ceo26/quantum-imperium" class="btn-secondary" style="margin-left: 12px;">💻 GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/Dev-Ceo26/quantum-imperium" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">Discord</a>
+                <a href="#" target="_blank">Medium</a>
+            </div>
+            <p>&copy; 2026 Quantum Imperium Core Team — The Ethereum Backup Plan</p>
+            <p style="margin-top: 8px; font-size: 13px;">
+                <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/LICENSE">MIT License</a> &middot;
+                <a href="https://github.com/Dev-Ceo26/quantum-imperium">Source Code</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
