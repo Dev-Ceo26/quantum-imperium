@@ -39,6 +39,6 @@ GitHub: https://github.com/Dev-Ceo26/quantum-imperium
 
 Twitter: (coming soon)
 
-Discord: (coming soon)
+Discord: https://discord.gg/J2W8Dk56m
 
 Quantum Imperium Core Team — April 2026
