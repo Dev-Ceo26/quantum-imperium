@@ -6,22 +6,18 @@
     <title>Quantum Imperium — The Ethereum Backup Plan</title>
     <meta name="description" content="Quantum Imperium is a Layer-1 blockchain designed to be quantum-safe by default, modular, and complementary to Ethereum.">
     
-    <!-- Favicon -->
     <link rel="icon" href="/assets/images/logo.png" type="image/png">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Quantum Imperium — The Ethereum Backup Plan">
     <meta property="og:description" content="A quantum-safe, modular blockchain for the post-quantum era.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://imperiumchain.com">
     <meta property="og:image" content="https://imperiumchain.com/assets/images/banner.png">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Quantum Imperium — The Ethereum Backup Plan">
     <meta name="twitter:description" content="A quantum-safe, modular blockchain for the post-quantum era.">
     
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -37,7 +33,17 @@
             transition: background 0.3s, color 0.3s;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        header { padding: 16px 0; border-bottom: 1px solid #1a1a2e; transition: border-color 0.3s; }
+        
+        /* HEADER */
+        header { 
+            padding: 16px 0; 
+            border-bottom: 1px solid #1a1a2e; 
+            transition: border-color 0.3s;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
         .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
         .logo { 
             display: flex; 
@@ -72,7 +78,6 @@
         }
         .btn-secondary:hover { border-color: #6c5ce7; color: #e8e8f0 !important; }
         
-        /* Theme Toggle Button */
         #theme-toggle {
             background: #1a1a2e;
             border: 1px solid #2a2a44;
@@ -85,69 +90,64 @@
         }
         #theme-toggle:hover { background: #2a2a44; }
         
-        /* Banner styles */
-        .hero-banner {
-            position: relative;
+        /* ===== BANNER SEPARATO ===== */
+        .banner-section {
+            padding: 20px 0;
+            background: transparent;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 600px;
             width: 100%;
-            max-height: 100px;
-            overflow: hidden;
+            margin: 0 auto;
         }
-        .banner-image {
+        .banner-container img {
             width: 100%;
-            height: 100px;
-            object-fit: cover;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
             display: block;
         }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(10, 10, 15, 0.4);
-            padding: 4px 20px;
+        .banner-container img:hover {
+            transform: scale(1.01);
         }
-        .hero-overlay .container {
+        
+        /* HERO - senza banner */
+        .hero {
+            padding: 60px 0 50px;
             text-align: center;
         }
-        .hero-overlay .badge {
-            display: inline-block;
-            background: rgba(26, 26, 46, 0.8);
-            color: #6c5ce7;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            border: 1px solid #2a2a44;
-        }
-        .hero-overlay h1 {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            margin-bottom: 4px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
         }
-        .hero-overlay h1 .highlight { color: #6c5ce7; }
-        .hero-overlay .subtitle {
-            font-size: clamp(0.7rem, 1vw, 0.9rem);
-            color: #c0c0d0;
+        .hero h1 .highlight { color: #6c5ce7; }
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #a0a0b8;
             max-width: 640px;
-            margin: 0 auto 8px;
+            margin: 0 auto 32px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #6c5ce7;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid #2a2a44;
         }
         .cta-group {
             display: flex;
-            gap: 10px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-        }
-        .cta-group .btn-primary,
-        .cta-group .btn-secondary {
-            padding: 4px 14px;
-            font-size: 12px;
         }
         
         .section {
@@ -223,6 +223,7 @@
             color: #1a1a2e;
         }
         body.light-theme header {
+            background: rgba(255, 255, 255, 0.95);
             border-bottom-color: #d0d0d8;
         }
         body.light-theme .card {
@@ -261,12 +262,6 @@
         body.light-theme #testnet {
             background: #ececf0;
         }
-        body.light-theme .hero-overlay {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        body.light-theme .hero-overlay .subtitle {
-            color: #2a2a3e;
-        }
         body.light-theme .btn-secondary {
             border-color: #b0b0bc;
             color: #3a3a4a !important;
@@ -285,35 +280,18 @@
         
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .banner-image { height: 80px; }
-            .hero-banner { max-height: 80px; }
-            .hero-overlay h1 { font-size: 1rem; }
-            .hero-overlay .subtitle { font-size: 0.65rem; }
-            .hero-overlay .badge { font-size: 8px; padding: 2px 8px; }
-            .cta-group .btn-primary,
-            .cta-group .btn-secondary {
-                font-size: 10px;
-                padding: 3px 10px;
-            }
+            .banner-section { max-width: 100%; padding: 12px 16px; }
             .header-content { flex-direction: column; align-items: center; }
             .nav-links { gap: 12px; justify-content: center; }
             .section { padding: 40px 0; }
+            .hero { padding: 40px 0 30px; }
         }
-        
         @media (max-width: 480px) {
-            .banner-image { height: 60px; }
-            .hero-banner { max-height: 60px; }
-            .hero-overlay h1 { font-size: 0.8rem; }
-            .hero-overlay .subtitle { font-size: 0.55rem; }
-            .hero-overlay .badge { font-size: 7px; padding: 1px 6px; }
-            .cta-group .btn-primary,
-            .cta-group .btn-secondary {
-                font-size: 9px;
-                padding: 2px 8px;
-            }
             .logo { font-size: 16px; }
             .logo img { height: 24px; }
             .nav-links a { font-size: 11px; }
+            .banner-section { padding: 8px 12px; }
+            .hero h1 { font-size: clamp(1.8rem, 6vw, 2.2rem); }
         }
     </style>
 </head>
@@ -338,18 +316,22 @@
     </header>
 
     <main>
-        <!-- BANNER -->
-        <section class="hero-banner">
-            <img src="/assets/images/banner.png" alt="Quantum Imperium Banner" class="banner-image">
-            <div class="hero-overlay">
-                <div class="container">
-                    <div class="badge">🚀 Public Testnet — Q2 2026</div>
-                    <h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
-                    <p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
-                    <div class="cta-group">
-                        <a href="#testnet" class="btn-primary">🚀 Join Testnet</a>
-                        <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 White Paper</a>
-                    </div>
+        <!-- ===== BANNER SEPARATO ===== -->
+        <div class="banner-section">
+            <div class="banner-container">
+                <img src="/assets/images/banner.png" alt="Quantum Imperium Banner" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="badge">🚀 Public Testnet — Q2 2026</div>
+                <h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
+                <p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
+                <div class="cta-group">
+                    <a href="#testnet" class="btn-primary">🚀 Join Testnet</a>
+                    <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 White Paper</a>
                 </div>
             </div>
         </section>
@@ -495,7 +477,6 @@
     </footer>
 
     <script>
-        // Theme Toggle
         document.addEventListener('DOMContentLoaded', function() {
             const toggle = document.getElementById('theme-toggle');
             const body = document.body;
