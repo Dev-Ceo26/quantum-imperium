@@ -82,13 +82,22 @@ bottom: 0;
 display: flex;
 align-items: center;
 justify-content: center;
-background: rgba(10, 10, 15, 0.4);
-padding: 20px;
+background: rgba(10, 10, 15, 0.3);
+padding: 8px;
+}
+.hero-overlay h1 {
+margin-bottom: 4px;
+}
+.hero-overlay .subtitle {
+margin-bottom: 8px;
+}
+.hero-overlay .badge {
+margin-bottom: 6px;
 }
         
         
         .hero h1 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -2px;
@@ -100,7 +109,7 @@ padding: 20px;
         }
         
         .hero .subtitle {
-            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
             color: #c0c0d0;
             max-width: 640px;
             margin: 0 auto 28px;
@@ -110,9 +119,9 @@ padding: 20px;
             display: inline-block;
             background: rgba(108, 92, 231, 0.15);
             color: #6c5ce7;
-            padding: 4px 14px;
+            padding: 2px 10px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             margin-bottom: 20px;
             border: 1px solid rgba(108, 92, 231, 0.2);
@@ -138,7 +147,7 @@ padding: 20px;
         .roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 24px; }
         .roadmap-item { background: #111121; padding: 24px; border-radius: 12px; border: 1px solid #1a1a2e; text-align: center; }
         .roadmap-item .phase { color: #6c5ce7; font-weight: 700; font-size: 14px; }
-        .roadmap-item .status { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600; }
+        .roadmap-item .status { display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 600; }
         .status-done { color: #00c853; }
         .status-progress { color: #ffd600; }
         .status-next { color: #a0a0b8; }
@@ -165,39 +174,27 @@ background-position: center;
 background-repeat: no-repeat;
 }
         
-        @media (max-width: 768px) {
-.hero {
-position: relative;
-padding: 80px 0;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #0a0a0f;
-background-image: url(x27/assets/images/banner.pngx27);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+@media (max-width: 768px) {
+.banner-image { height: 80px; }
+.hero-banner { height: 80px; }
+.hero-overlay h1 { font-size: 1.2rem; }
+.hero-overlay .subtitle { font-size: 0.7rem; }
+.hero-overlay .badge { font-size: 9px; padding: 2px 8px; }
 }
             .header-content { flex-direction: column; align-items: center; }
             .nav-links { gap: 16px; justify-content: center; }
             .section { padding: 48px 0; }
         }
         
-        @media (max-width: 480px) {
-.hero {
-position: relative;
-padding: 80px 0;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #0a0a0f;
-background-image: url(x27/assets/images/banner.pngx27);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+@media (max-width: 480px) {
+.banner-image { height: 60px; }
+.hero-banner { height: 60px; }
+.hero-overlay h1 { font-size: 1rem; }
+.hero-overlay .subtitle { font-size: 0.6rem; }
+.hero-overlay .badge { font-size: 8px; padding: 2px 6px; }
 }
             .hero .subtitle { font-size: 0.9rem; padding: 0 16px; }
-            .hero .badge { font-size: 11px; padding: 4px 14px; }
+            .hero .badge { font-size: 10px; padding: 2px 10px; }
 .hero {
 position: relative;
 padding: 80px 0;
@@ -230,11 +227,11 @@ background-repeat: no-repeat;
 position: relative;
 width: 100%;
 overflow: hidden;
-max-height: 50vh;
+max-height: 100px;
 }
 .banner-image {
 width: 100%;
-max-height: 50vh;
+max-height: 100px;
 object-fit: cover;
 display: block;
 }
@@ -247,8 +244,17 @@ bottom: 0;
 display: flex;
 align-items: center;
 justify-content: center;
-background: rgba(10, 10, 15, 0.4);
-padding: 20px;
+background: rgba(10, 10, 15, 0.3);
+padding: 8px;
+}
+.hero-overlay h1 {
+margin-bottom: 4px;
+}
+.hero-overlay .subtitle {
+margin-bottom: 8px;
+}
+.hero-overlay .badge {
+margin-bottom: 6px;
 }
 .hero-overlay .container {
 max-width: 1200px;
@@ -316,8 +322,17 @@ bottom: 0;
 display: flex;
 align-items: center;
 justify-content: center;
-background: rgba(10, 10, 15, 0.4);
-padding: 20px;
+background: rgba(10, 10, 15, 0.3);
+padding: 8px;
+}
+.hero-overlay h1 {
+margin-bottom: 4px;
+}
+.hero-overlay .subtitle {
+margin-bottom: 8px;
+}
+.hero-overlay .badge {
+margin-bottom: 6px;
 }
 body.light-theme .subtitle {
 color: #2a2a3e;
@@ -327,15 +342,44 @@ border-color: #c0c0cc;
 color: #4a4a5a !important;
 }
 @media (max-width: 768px) {
-.banner-image { max-height: 40vh; }
+.banner-image { height: 80px; }
+.hero-banner { height: 80px; }
+.hero-overlay h1 { font-size: 1.2rem; }
+.hero-overlay .subtitle { font-size: 0.7rem; }
+.hero-overlay .badge { font-size: 9px; padding: 2px 8px; }
+}
 .hero-banner { max-height: 40vh; }
-.hero-overlay { padding: 10px; }
-.hero-overlay h1 { font-size: clamp(1.5rem, 5vw, 2rem); }
+.hero-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(10, 10, 15, 0.3);
+padding: 8px;
+}
+.hero-overlay h1 {
+margin-bottom: 4px;
+}
+.hero-overlay .subtitle {
+margin-bottom: 8px;
+}
+.hero-overlay .badge {
+margin-bottom: 6px;
+}
 .hero-overlay .subtitle { font-size: 0.8rem; }
 .hero-overlay .badge { font-size: 10px; padding: 3px 10px; }
 }
 @media (max-width: 480px) {
-.banner-image { max-height: 35vh; }
+.banner-image { height: 60px; }
+.hero-banner { height: 60px; }
+.hero-overlay h1 { font-size: 1rem; }
+.hero-overlay .subtitle { font-size: 0.6rem; }
+.hero-overlay .badge { font-size: 8px; padding: 2px 6px; }
+}
 .hero-banner { max-height: 35vh; }
 .hero-overlay h1 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
 .hero-overlay .subtitle { font-size: 0.7rem; }
@@ -483,17 +527,17 @@ color: #4a4a5a !important;
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 1</div>
                         <div style="font-weight: 600;">Clone</div>
-                        <code style="font-size: 11px; color: #6c5ce7;">git clone ...</code>
+                        <code style="font-size: 10px; color: #6c5ce7;">git clone ...</code>
                     </div>
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 2</div>
                         <div style="font-weight: 600;">Install</div>
-                        <code style="font-size: 11px; color: #6c5ce7;">pip install -r</code>
+                        <code style="font-size: 10px; color: #6c5ce7;">pip install -r</code>
                     </div>
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 3</div>
                         <div style="font-weight: 600;">Run</div>
-                        <code style="font-size: 11px; color: #6c5ce7;">python3 main.py</code>
+                        <code style="font-size: 10px; color: #6c5ce7;">python3 main.py</code>
                     </div>
                 </div>
                 <div style="margin-top: 32px;">
@@ -510,7 +554,7 @@ color: #4a4a5a !important;
                 <a href="https://discord.gg/J2W8Dk56m" target="_blank">Discord</a>
             </div>
             <p>&copy; 2026 Quantum Imperium Core Team — The Ethereum Backup Plan</p>
-            <p style="margin-top: 8px; font-size: 11px;">
+            <p style="margin-top: 8px; font-size: 10px;">
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/LICENSE">MIT License</a> &middot;
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium">Source Code</a>
             </p>
