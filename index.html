@@ -263,6 +263,60 @@ padding: 0;
 min-height: auto;
 background: none;
 }
+/* Tema chiaro */
+body.light-theme {
+background: #f5f5f7;
+color: #1a1a2e;
+}
+body.light-theme .card {
+background: #ffffff;
+border-color: #e0e0e6;
+}
+body.light-theme .card p {
+color: #4a4a5a;
+}
+body.light-theme .nav-links a {
+color: #4a4a5a;
+}
+body.light-theme .nav-links a:hover {
+color: #1a1a2e;
+}
+body.light-theme .section {
+border-top-color: #e0e0e6;
+}
+body.light-theme .section-subtitle {
+color: #4a4a5a;
+}
+body.light-theme .badge {
+background: rgba(108, 92, 231, 0.1);
+border-color: rgba(108, 92, 231, 0.2);
+}
+body.light-theme .roadmap-item {
+background: #ffffff;
+border-color: #e0e0e6;
+}
+body.light-theme header {
+border-bottom-color: #e0e0e6;
+}
+body.light-theme footer {
+border-top-color: #e0e0e6;
+}
+body.light-theme #solution {
+background: #ececf0;
+}
+body.light-theme #testnet {
+background: #ececf0;
+}
+body.light-theme .hero-overlay {
+background: rgba(255, 255, 255, 0.3);
+}
+body.light-theme .subtitle {
+color: #2a2a3e;
+}
+body.light-theme .btn-secondary {
+border-color: #c0c0cc;
+color: #4a4a5a !important;
+}
     </style>
 </head>
 <body>
@@ -274,6 +328,7 @@ background: none;
                     <span>Quantum <span class="highlight">Imperium</span></span>
                 </div>
                 <nav class="nav-links">
+<button id="theme-toggle" style="background: transparent; border: 1px solid #2a2a44; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; color: #a0a0b8; font-size: 18px; display: flex; align-items: center; justify-content: center;">🌙</button>
                     <a href="#problem">Problem</a>
                     <a href="#solution">Solution</a>
                     <a href="#roadmap">Roadmap</a>
@@ -441,5 +496,26 @@ background: none;
             </p>
         </div>
     </footer>
+<script>
+const themeToggle = document.getElementById(x27theme-togglex27);
+const body = document.body;
+const currentTheme = localStorage.getItem(x27themex27) || x27darkx27;
+if (currentTheme === x27lightx27) {
+body.classList.add(x27light-themex27);
+themeToggle.textContent = x27🌙x27;
+} else {
+themeToggle.textContent = x27☀️x27;
+}
+themeToggle.addEventListener(x27clickx27, function() {
+body.classList.toggle(x27light-themex27);
+if (body.classList.contains(x27light-themex27)) {
+localStorage.setItem(x27themex27, x27lightx27);
+themeToggle.textContent = x27🌙x27;
+} else {
+localStorage.setItem(x27themex27, x27darkx27);
+themeToggle.textContent = x27☀️x27;
+}
+});
+</script>
 </body>
 </html>
