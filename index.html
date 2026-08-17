@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Imperium — The Ethereum Backup Plan</title>
+    <meta name="description" content="Quantum Imperium is a Layer-1 blockchain designed to be quantum-safe by default, modular, and complementary to Ethereum.">
     
     <!-- Favicon -->
     <link rel="icon" href="/assets/images/logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="/assets/images/logo.png">
     
-    <!-- Open Graph per i social -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Quantum Imperium — The Ethereum Backup Plan">
-    <meta property="og:description" content="A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.">
-    <meta property="og:image" content="https://imperiumchain.com/assets/images/banner.png">
-    <meta property="og:url" content="https://imperiumchain.com">
+    <meta property="og:description" content="A quantum-safe, modular blockchain for the post-quantum era.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imperiumchain.com">
+    <meta property="og:image" content="https://imperiumchain.com/assets/images/banner.png">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Imperium — The Ethereum Backup Plan">
+    <meta name="twitter:description" content="A quantum-safe, modular blockchain for the post-quantum era.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,363 +34,287 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background 0.3s, color 0.3s;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        header { padding: 20px 0; border-bottom: 1px solid #1a1a2e; }
+        header { padding: 16px 0; border-bottom: 1px solid #1a1a2e; transition: border-color 0.3s; }
         .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-        
-        /* Logo styles */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 22px; 
+            font-weight: 800; 
+            letter-spacing: -0.5px; 
         }
-        .logo-img {
-            height: 36px;
-            width: auto;
-        }
-        .logo span {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        .logo span .highlight {
-            color: #6c5ce7;
-        }
-        
-        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .logo img { height: 32px; width: auto; }
+        .logo span { color: #6c5ce7; }
+        .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
         .nav-links a { color: #a0a0b8; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
         .nav-links a:hover { color: #e8e8f0; }
-        .btn-primary { background: #6c5ce7; color: #fff !important; padding: 10px 24px; border-radius: 8px; font-weight: 700; transition: background 0.2s, transform 0.1s; }
+        .btn-primary {
+            background: #6c5ce7;
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.1s;
+        }
         .btn-primary:hover { background: #5a4bd1; transform: translateY(-1px); }
-        .btn-secondary { background: transparent; color: #a0a0b8 !important; padding: 10px 24px; border-radius: 8px; border: 1px solid #2a2a44; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
+        .btn-secondary {
+            background: transparent;
+            color: #a0a0b8 !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 1px solid #2a2a44;
+            font-weight: 600;
+            transition: border-color 0.2s, color 0.2s;
+        }
         .btn-secondary:hover { border-color: #6c5ce7; color: #e8e8f0 !important; }
         
-        /* Hero - stile BRVBTC: sottile, minimalista, con immagine di sfondo leggera */
-.hero {
-position: relative;
-padding: 80px 0;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #0a0a0f;
-background-image: url(x27/assets/images/banner.pngx27);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-}
-        
-.hero-overlay {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-background: rgba(10, 10, 15, 0.3);
-padding: 8px;
-}
-.hero-overlay h1 {
-margin-bottom: 4px;
-}
-.hero-overlay .subtitle {
-margin-bottom: 8px;
-}
-.hero-overlay .badge {
-margin-bottom: 6px;
-}
-        
-        
-        .hero h1 {
-            font-size: clamp(1.2rem, 2vw, 1.8rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 12px;
+        /* Theme Toggle Button */
+        #theme-toggle {
+            background: #1a1a2e;
+            border: 1px solid #2a2a44;
+            border-radius: 8px;
+            padding: 6px 12px;
+            cursor: pointer;
+            color: #e8e8f0;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
         }
+        #theme-toggle:hover { background: #2a2a44; }
         
-        .hero h1 .highlight {
-            color: #6c5ce7;
+        /* Banner styles */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            max-height: 100px;
+            overflow: hidden;
         }
-        
-        .hero .subtitle {
-            font-size: clamp(0.7rem, 1vw, 0.9rem);
-            color: #c0c0d0;
-            max-width: 640px;
-            margin: 0 auto 28px;
+        .banner-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            display: block;
         }
-        
-        .hero .badge {
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 15, 0.4);
+            padding: 4px 20px;
+        }
+        .hero-overlay .container {
+            text-align: center;
+        }
+        .hero-overlay .badge {
             display: inline-block;
-            background: rgba(108, 92, 231, 0.15);
+            background: rgba(26, 26, 46, 0.8);
             color: #6c5ce7;
-            padding: 2px 10px;
+            padding: 2px 12px;
             border-radius: 20px;
             font-size: 10px;
             font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid rgba(108, 92, 231, 0.2);
-            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+            border: 1px solid #2a2a44;
         }
-        
+        .hero-overlay h1 {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+        .hero-overlay h1 .highlight { color: #6c5ce7; }
+        .hero-overlay .subtitle {
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
+            color: #c0c0d0;
+            max-width: 640px;
+            margin: 0 auto 8px;
+        }
         .cta-group {
             display: flex;
-            gap: 16px;
+            gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
         }
+        .cta-group .btn-primary,
+        .cta-group .btn-secondary {
+            padding: 4px 14px;
+            font-size: 12px;
+        }
         
-        .section { padding: 80px 0; border-top: 1px solid #1a1a2e; }
-        .section-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; text-align: center; margin-bottom: 16px; }
-        .section-subtitle { text-align: center; color: #a0a0b8; max-width: 640px; margin: 0 auto 48px; font-size: 1.1rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-        .card { background: #111121; border: 1px solid #1a1a2e; border-radius: 16px; padding: 32px 24px; transition: border-color 0.2s, transform 0.15s; }
+        .section {
+            padding: 60px 0;
+            border-top: 1px solid #1a1a2e;
+            transition: border-color 0.3s;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #a0a0b8;
+            max-width: 640px;
+            margin: 0 auto 40px;
+            font-size: 1rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: #111121;
+            border: 1px solid #1a1a2e;
+            border-radius: 16px;
+            padding: 28px 20px;
+            transition: border-color 0.2s, transform 0.15s;
+        }
         .card:hover { border-color: #2a2a44; transform: translateY(-4px); }
-        .card .icon { font-size: 32px; margin-bottom: 12px; }
-        .card h3 { font-size: 20px; margin-bottom: 8px; font-weight: 700; }
-        .card p { color: #a0a0b8; font-size: 15px; }
-        .roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 24px; }
-        .roadmap-item { background: #111121; padding: 24px; border-radius: 12px; border: 1px solid #1a1a2e; text-align: center; }
-        .roadmap-item .phase { color: #6c5ce7; font-weight: 700; font-size: 14px; }
-        .roadmap-item .status { display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 600; }
+        .card .icon { font-size: 28px; margin-bottom: 10px; }
+        .card h3 { font-size: 18px; margin-bottom: 6px; font-weight: 700; }
+        .card p { color: #a0a0b8; font-size: 14px; }
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .roadmap-item {
+            background: #111121;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #1a1a2e;
+            text-align: center;
+        }
+        .roadmap-item .phase { color: #6c5ce7; font-weight: 700; font-size: 13px; }
+        .roadmap-item .status { display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 600; }
         .status-done { color: #00c853; }
         .status-progress { color: #ffd600; }
         .status-next { color: #a0a0b8; }
-        footer { margin-top: auto; padding: 40px 0; border-top: 1px solid #1a1a2e; text-align: center; color: #606080; font-size: 14px; }
+        footer {
+            margin-top: auto;
+            padding: 32px 0;
+            border-top: 1px solid #1a1a2e;
+            text-align: center;
+            color: #606080;
+            font-size: 13px;
+            transition: border-color 0.3s;
+        }
         footer a { color: #a0a0b8; text-decoration: none; }
         footer a:hover { color: #e8e8f0; }
-        .social-links { display: flex; gap: 20px; justify-content: center; margin: 16px 0; }
-        .social-links a { color: #606080; font-size: 20px; transition: color 0.2s; }
+        .social-links { display: flex; gap: 16px; justify-content: center; margin: 12px 0; }
+        .social-links a { color: #606080; font-size: 18px; transition: color 0.2s; }
         .social-links a:hover { color: #e8e8f0; }
-        .footer-email { color: #404060; font-size: 12px; margin-top: 8px; }
         
-        /* Media Queries per dispositivi */
-        @media (max-width: 1024px) {
-.hero {
-position: relative;
-padding: 80px 0;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #0a0a0f;
-background-image: url(x27/assets/images/banner.pngx27);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-}
+        /* ===== LIGHT THEME ===== */
+        body.light-theme {
+            background: #f5f5f7;
+            color: #1a1a2e;
+        }
+        body.light-theme header {
+            border-bottom-color: #d0d0d8;
+        }
+        body.light-theme .card {
+            background: #ffffff;
+            border-color: #d0d0d8;
+        }
+        body.light-theme .card p {
+            color: #3a3a4a;
+        }
+        body.light-theme .nav-links a {
+            color: #3a3a4a;
+        }
+        body.light-theme .nav-links a:hover {
+            color: #1a1a2e;
+        }
+        body.light-theme .section {
+            border-top-color: #d0d0d8;
+        }
+        body.light-theme .section-subtitle {
+            color: #3a3a4a;
+        }
+        body.light-theme .badge {
+            background: rgba(108, 92, 231, 0.1);
+            border-color: rgba(108, 92, 231, 0.2);
+        }
+        body.light-theme .roadmap-item {
+            background: #ffffff;
+            border-color: #d0d0d8;
+        }
+        body.light-theme footer {
+            border-top-color: #d0d0d8;
+        }
+        body.light-theme #solution {
+            background: #ececf0;
+        }
+        body.light-theme #testnet {
+            background: #ececf0;
+        }
+        body.light-theme .hero-overlay {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        body.light-theme .hero-overlay .subtitle {
+            color: #2a2a3e;
+        }
+        body.light-theme .btn-secondary {
+            border-color: #b0b0bc;
+            color: #3a3a4a !important;
+        }
+        body.light-theme .btn-secondary:hover {
+            border-color: #6c5ce7;
+        }
+        body.light-theme #theme-toggle {
+            background: #e0e0e6;
+            border-color: #b0b0bc;
+            color: #1a1a2e;
+        }
+        body.light-theme #theme-toggle:hover {
+            background: #d0d0d8;
+        }
         
-@media (max-width: 768px) {
-.banner-image { height: 80px; }
-.hero-banner { height: 80px; }
-.hero-overlay h1 { font-size: 1.2rem; }
-.hero-overlay .subtitle { font-size: 0.7rem; }
-.hero-overlay .badge { font-size: 9px; padding: 2px 8px; }
-}
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .banner-image { height: 80px; }
+            .hero-banner { max-height: 80px; }
+            .hero-overlay h1 { font-size: 1rem; }
+            .hero-overlay .subtitle { font-size: 0.65rem; }
+            .hero-overlay .badge { font-size: 8px; padding: 2px 8px; }
+            .cta-group .btn-primary,
+            .cta-group .btn-secondary {
+                font-size: 10px;
+                padding: 3px 10px;
+            }
             .header-content { flex-direction: column; align-items: center; }
-            .nav-links { gap: 16px; justify-content: center; }
-            .section { padding: 48px 0; }
+            .nav-links { gap: 12px; justify-content: center; }
+            .section { padding: 40px 0; }
         }
         
-@media (max-width: 480px) {
-.banner-image { height: 60px; }
-.hero-banner { height: 60px; }
-.hero-overlay h1 { font-size: 1rem; }
-.hero-overlay .subtitle { font-size: 0.6rem; }
-.hero-overlay .badge { font-size: 8px; padding: 2px 6px; }
-}
-            .hero .subtitle { font-size: 0.9rem; padding: 0 16px; }
-            .hero .badge { font-size: 10px; padding: 2px 10px; }
-.hero {
-position: relative;
-padding: 80px 0;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #0a0a0f;
-background-image: url(x27/assets/images/banner.pngx27);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-}
-        
-        @media (min-width: 1920px) {
-.hero {
-position: relative;
-padding: 80px 0;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #0a0a0f;
-background-image: url(x27/assets/images/banner.pngx27);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-}
+        @media (max-width: 480px) {
+            .banner-image { height: 60px; }
+            .hero-banner { max-height: 60px; }
+            .hero-overlay h1 { font-size: 0.8rem; }
+            .hero-overlay .subtitle { font-size: 0.55rem; }
+            .hero-overlay .badge { font-size: 7px; padding: 1px 6px; }
+            .cta-group .btn-primary,
+            .cta-group .btn-secondary {
+                font-size: 9px;
+                padding: 2px 8px;
+            }
+            .logo { font-size: 16px; }
+            .logo img { height: 24px; }
+            .nav-links a { font-size: 11px; }
         }
-/* Stili per il banner come immagine */
-.hero-banner {
-position: relative;
-width: 100%;
-overflow: hidden;
-max-height: 100px;
-}
-.banner-image {
-width: 100%;
-max-height: 100px;
-object-fit: cover;
-display: block;
-}
-.hero-overlay {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-background: rgba(10, 10, 15, 0.3);
-padding: 8px;
-}
-.hero-overlay h1 {
-margin-bottom: 4px;
-}
-.hero-overlay .subtitle {
-margin-bottom: 8px;
-}
-.hero-overlay .badge {
-margin-bottom: 6px;
-}
-.hero-overlay .container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 24px;
-width: 100%;
-text-align: center;
-}
-/* Rimuovi gli stili vecchi che potrebbero interferire */
-.hero {
-padding: 0;
-min-height: auto;
-background: none;
-}
-/* Tema chiaro */
-body.light-theme {
-background: #f5f5f7;
-color: #1a1a2e;
-}
-body.light-theme .card {
-background: #ffffff;
-border-color: #e0e0e6;
-}
-body.light-theme .card p {
-color: #4a4a5a;
-}
-body.light-theme .nav-links a {
-color: #4a4a5a;
-}
-body.light-theme .nav-links a:hover {
-color: #1a1a2e;
-}
-body.light-theme .section {
-border-top-color: #e0e0e6;
-}
-body.light-theme .section-subtitle {
-color: #4a4a5a;
-}
-body.light-theme .badge {
-background: rgba(108, 92, 231, 0.1);
-border-color: rgba(108, 92, 231, 0.2);
-}
-body.light-theme .roadmap-item {
-background: #ffffff;
-border-color: #e0e0e6;
-}
-body.light-theme header {
-border-bottom-color: #e0e0e6;
-}
-body.light-theme footer {
-border-top-color: #e0e0e6;
-}
-body.light-theme #solution {
-background: #ececf0;
-}
-body.light-theme #testnet {
-background: #ececf0;
-}
-.hero-overlay {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-background: rgba(10, 10, 15, 0.3);
-padding: 8px;
-}
-.hero-overlay h1 {
-margin-bottom: 4px;
-}
-.hero-overlay .subtitle {
-margin-bottom: 8px;
-}
-.hero-overlay .badge {
-margin-bottom: 6px;
-}
-body.light-theme .subtitle {
-color: #2a2a3e;
-}
-body.light-theme .btn-secondary {
-border-color: #c0c0cc;
-color: #4a4a5a !important;
-}
-@media (max-width: 768px) {
-.banner-image { height: 80px; }
-.hero-banner { height: 80px; }
-.hero-overlay h1 { font-size: 1.2rem; }
-.hero-overlay .subtitle { font-size: 0.7rem; }
-.hero-overlay .badge { font-size: 9px; padding: 2px 8px; }
-}
-.hero-banner { max-height: 40vh; }
-.hero-overlay {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-background: rgba(10, 10, 15, 0.3);
-padding: 8px;
-}
-.hero-overlay h1 {
-margin-bottom: 4px;
-}
-.hero-overlay .subtitle {
-margin-bottom: 8px;
-}
-.hero-overlay .badge {
-margin-bottom: 6px;
-}
-.hero-overlay .subtitle { font-size: 0.8rem; }
-.hero-overlay .badge { font-size: 10px; padding: 3px 10px; }
-}
-@media (max-width: 480px) {
-.banner-image { height: 60px; }
-.hero-banner { height: 60px; }
-.hero-overlay h1 { font-size: 1rem; }
-.hero-overlay .subtitle { font-size: 0.6rem; }
-.hero-overlay .badge { font-size: 8px; padding: 2px 6px; }
-}
-.hero-banner { max-height: 35vh; }
-.hero-overlay h1 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
-.hero-overlay .subtitle { font-size: 0.7rem; }
-}
     </style>
 </head>
 <body>
@@ -391,37 +322,37 @@ margin-bottom: 6px;
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="/assets/images/logo.png" alt="Imperium Chain Logo" class="logo-img">
-                    <span>Quantum <span class="highlight">Imperium</span></span>
+                    <img src="/assets/images/logo.png" alt="Quantum Imperium">
+                    Quantum <span>Imperium</span>
                 </div>
                 <nav class="nav-links">
-<button id="theme-toggle" style="background: transparent; border: 1px solid #2a2a44; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; color: #a0a0b8; font-size: 18px; display: flex; align-items: center; justify-content: center;">🌙</button>
                     <a href="#problem">Problem</a>
                     <a href="#solution">Solution</a>
                     <a href="#roadmap">Roadmap</a>
                     <a href="https://github.com/Dev-Ceo26/quantum-imperium" target="_blank">GitHub</a>
                     <a href="#testnet" class="btn-primary">Join Testnet</a>
+                    <button id="theme-toggle">☀️</button>
                 </nav>
             </div>
         </div>
     </header>
+
     <main>
-<section class="hero">
-<div class="hero-banner">
-<img src="/assets/images/banner.png" alt="Quantum Imperium Banner" class="banner-image">
-<div class="hero-overlay">
-<div class="container">
-<div class="badge">🚀 Public Testnet — Q2 2026</div>
-<h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
-<p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
-<div class="cta-group">
-<a href="#testnet" class="btn-primary">🚀 Join the Testnet</a>
-<a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 Read White Paper</a>
-</div>
-</div>
-</div>
-</div>
-</section>
+        <!-- BANNER -->
+        <section class="hero-banner">
+            <img src="/assets/images/banner.png" alt="Quantum Imperium Banner" class="banner-image">
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="badge">🚀 Public Testnet — Q2 2026</div>
+                    <h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
+                    <p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
+                    <div class="cta-group">
+                        <a href="#testnet" class="btn-primary">🚀 Join Testnet</a>
+                        <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 White Paper</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="problem" class="section">
             <div class="container">
@@ -527,17 +458,17 @@ margin-bottom: 6px;
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 1</div>
                         <div style="font-weight: 600;">Clone</div>
-                        <code style="font-size: 10px; color: #6c5ce7;">git clone ...</code>
+                        <code style="font-size: 13px; color: #6c5ce7;">git clone ...</code>
                     </div>
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 2</div>
                         <div style="font-weight: 600;">Install</div>
-                        <code style="font-size: 10px; color: #6c5ce7;">pip install -r</code>
+                        <code style="font-size: 13px; color: #6c5ce7;">pip install -r</code>
                     </div>
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 3</div>
                         <div style="font-weight: 600;">Run</div>
-                        <code style="font-size: 10px; color: #6c5ce7;">python3 main.py</code>
+                        <code style="font-size: 13px; color: #6c5ce7;">python3 main.py</code>
                     </div>
                 </div>
                 <div style="margin-top: 32px;">
@@ -547,42 +478,47 @@ margin-bottom: 6px;
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container">
             <div class="social-links">
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium" target="_blank">GitHub</a>
                 <a href="https://discord.gg/J2W8Dk56m" target="_blank">Discord</a>
+                <a href="mailto:core@imperiumchain.com">Email</a>
             </div>
             <p>&copy; 2026 Quantum Imperium Core Team — The Ethereum Backup Plan</p>
-            <p style="margin-top: 8px; font-size: 10px;">
+            <p style="margin-top: 8px; font-size: 13px;">
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/LICENSE">MIT License</a> &middot;
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium">Source Code</a>
             </p>
-            <p class="footer-email">
-                <a href="mailto:core@imperiumchain.com" style="color: #404060;">core@imperiumchain.com</a>
-            </p>
         </div>
     </footer>
-<script>
-const themeToggle = document.getElementById(x27theme-togglex27);
-const body = document.body;
-const currentTheme = localStorage.getItem(x27themex27) || x27darkx27;
-if (currentTheme === x27lightx27) {
-body.classList.add(x27light-themex27);
-themeToggle.textContent = x27🌙x27;
-} else {
-themeToggle.textContent = x27☀️x27;
-}
-themeToggle.addEventListener(x27clickx27, function() {
-body.classList.toggle(x27light-themex27);
-if (body.classList.contains(x27light-themex27)) {
-localStorage.setItem(x27themex27, x27lightx27);
-themeToggle.textContent = x27🌙x27;
-} else {
-localStorage.setItem(x27themex27, x27darkx27);
-themeToggle.textContent = x27☀️x27;
-}
-});
-</script>
+
+    <script>
+        // Theme Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const saved = localStorage.getItem('theme');
+            
+            if (saved === 'light') {
+                body.classList.add('light-theme');
+                toggle.textContent = '🌙';
+            } else {
+                toggle.textContent = '☀️';
+            }
+            
+            toggle.addEventListener('click', function() {
+                body.classList.toggle('light-theme');
+                if (body.classList.contains('light-theme')) {
+                    localStorage.setItem('theme', 'light');
+                    toggle.textContent = '🌙';
+                } else {
+                    localStorage.setItem('theme', 'dark');
+                    toggle.textContent = '☀️';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
