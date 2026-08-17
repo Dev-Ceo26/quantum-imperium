@@ -227,6 +227,42 @@ background-position: center;
 background-repeat: no-repeat;
 }
         }
+/* Stili per il banner come immagine */
+.hero-banner {
+position: relative;
+width: 100%;
+overflow: hidden;
+}
+.banner-image {
+width: 100%;
+height: auto;
+display: block;
+}
+.hero-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(10, 10, 15, 0.4);
+padding: 20px;
+}
+.hero-overlay .container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 24px;
+width: 100%;
+text-align: center;
+}
+/* Rimuovi gli stili vecchi che potrebbero interferire */
+.hero {
+padding: 0;
+min-height: auto;
+background: none;
+}
     </style>
 </head>
 <body>
@@ -248,19 +284,22 @@ background-repeat: no-repeat;
         </div>
     </header>
     <main>
-        <section class="hero">
-            <div class="hero-overlay">
-                <div class="container">
-                    <div class="badge">🚀 Public Testnet — Q2 2026</div>
-                    <h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
-                    <p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
-                    <div class="cta-group">
-                        <a href="#testnet" class="btn-primary">🚀 Join the Testnet</a>
-                        <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 Read White Paper</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="hero">
+<div class="hero-banner">
+<img src="/assets/images/banner.png" alt="Quantum Imperium Banner" class="banner-image">
+<div class="hero-overlay">
+<div class="container">
+<div class="badge">🚀 Public Testnet — Q2 2026</div>
+<h1>The Ethereum <span class="highlight">Backup Plan</span></h1>
+<p class="subtitle">A quantum-safe, modular, and interoperable Layer‑1 blockchain for the post‑quantum era.</p>
+<div class="cta-group">
+<a href="#testnet" class="btn-primary">🚀 Join the Testnet</a>
+<a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/docs/whitepaper.md" class="btn-secondary">📄 Read White Paper</a>
+</div>
+</div>
+</div>
+</div>
+</section>
 
         <section id="problem" class="section">
             <div class="container">
