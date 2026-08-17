@@ -62,7 +62,6 @@
         /* Hero - stile BRVBTC: sottile, minimalista, con immagine di sfondo leggera */
 .hero {
 position: relative;
-min-height: 50vh;
 padding: 80px 0;
 display: flex;
 align-items: center;
@@ -75,17 +74,21 @@ background-repeat: no-repeat;
 }
         
 .hero-overlay {
-position: relative;
-z-index: 2;
-width: 100%;
-background: rgba(10, 10, 15, 0.3); /* Overlay molto leggero */
-padding: 20px 0;
-border-radius: 12px;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(10, 10, 15, 0.4);
+padding: 20px;
 }
         
         
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 4.2rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -2px;
@@ -97,7 +100,7 @@ border-radius: 12px;
         }
         
         .hero .subtitle {
-            font-size: clamp(1rem, 1.4vw, 1.3rem);
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
             color: #c0c0d0;
             max-width: 640px;
             margin: 0 auto 28px;
@@ -107,9 +110,9 @@ border-radius: 12px;
             display: inline-block;
             background: rgba(108, 92, 231, 0.15);
             color: #6c5ce7;
-            padding: 6px 18px;
+            padding: 4px 14px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             margin-bottom: 20px;
             border: 1px solid rgba(108, 92, 231, 0.2);
@@ -135,7 +138,7 @@ border-radius: 12px;
         .roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 24px; }
         .roadmap-item { background: #111121; padding: 24px; border-radius: 12px; border: 1px solid #1a1a2e; text-align: center; }
         .roadmap-item .phase { color: #6c5ce7; font-weight: 700; font-size: 14px; }
-        .roadmap-item .status { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; }
+        .roadmap-item .status { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600; }
         .status-done { color: #00c853; }
         .status-progress { color: #ffd600; }
         .status-next { color: #a0a0b8; }
@@ -151,7 +154,6 @@ border-radius: 12px;
         @media (max-width: 1024px) {
 .hero {
 position: relative;
-min-height: 50vh;
 padding: 80px 0;
 display: flex;
 align-items: center;
@@ -166,7 +168,6 @@ background-repeat: no-repeat;
         @media (max-width: 768px) {
 .hero {
 position: relative;
-min-height: 50vh;
 padding: 80px 0;
 display: flex;
 align-items: center;
@@ -185,7 +186,6 @@ background-repeat: no-repeat;
         @media (max-width: 480px) {
 .hero {
 position: relative;
-min-height: 50vh;
 padding: 80px 0;
 display: flex;
 align-items: center;
@@ -200,7 +200,6 @@ background-repeat: no-repeat;
             .hero .badge { font-size: 11px; padding: 4px 14px; }
 .hero {
 position: relative;
-min-height: 50vh;
 padding: 80px 0;
 display: flex;
 align-items: center;
@@ -215,7 +214,6 @@ background-repeat: no-repeat;
         @media (min-width: 1920px) {
 .hero {
 position: relative;
-min-height: 50vh;
 padding: 80px 0;
 display: flex;
 align-items: center;
@@ -232,10 +230,12 @@ background-repeat: no-repeat;
 position: relative;
 width: 100%;
 overflow: hidden;
+max-height: 50vh;
 }
 .banner-image {
 width: 100%;
-height: auto;
+max-height: 50vh;
+object-fit: cover;
 display: block;
 }
 .hero-overlay {
@@ -307,8 +307,17 @@ background: #ececf0;
 body.light-theme #testnet {
 background: #ececf0;
 }
-body.light-theme .hero-overlay {
-background: rgba(255, 255, 255, 0.3);
+.hero-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(10, 10, 15, 0.4);
+padding: 20px;
 }
 body.light-theme .subtitle {
 color: #2a2a3e;
@@ -316,6 +325,20 @@ color: #2a2a3e;
 body.light-theme .btn-secondary {
 border-color: #c0c0cc;
 color: #4a4a5a !important;
+}
+@media (max-width: 768px) {
+.banner-image { max-height: 40vh; }
+.hero-banner { max-height: 40vh; }
+.hero-overlay { padding: 10px; }
+.hero-overlay h1 { font-size: clamp(1.5rem, 5vw, 2rem); }
+.hero-overlay .subtitle { font-size: 0.8rem; }
+.hero-overlay .badge { font-size: 10px; padding: 3px 10px; }
+}
+@media (max-width: 480px) {
+.banner-image { max-height: 35vh; }
+.hero-banner { max-height: 35vh; }
+.hero-overlay h1 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+.hero-overlay .subtitle { font-size: 0.7rem; }
 }
     </style>
 </head>
@@ -460,17 +483,17 @@ color: #4a4a5a !important;
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 1</div>
                         <div style="font-weight: 600;">Clone</div>
-                        <code style="font-size: 13px; color: #6c5ce7;">git clone ...</code>
+                        <code style="font-size: 11px; color: #6c5ce7;">git clone ...</code>
                     </div>
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 2</div>
                         <div style="font-weight: 600;">Install</div>
-                        <code style="font-size: 13px; color: #6c5ce7;">pip install -r</code>
+                        <code style="font-size: 11px; color: #6c5ce7;">pip install -r</code>
                     </div>
                     <div style="background: #111121; padding: 16px 24px; border-radius: 12px; border: 1px solid #1a1a2e; flex: 1; min-width: 140px;">
                         <div style="font-size: 12px; color: #606080;">Step 3</div>
                         <div style="font-weight: 600;">Run</div>
-                        <code style="font-size: 13px; color: #6c5ce7;">python3 main.py</code>
+                        <code style="font-size: 11px; color: #6c5ce7;">python3 main.py</code>
                     </div>
                 </div>
                 <div style="margin-top: 32px;">
@@ -487,7 +510,7 @@ color: #4a4a5a !important;
                 <a href="https://discord.gg/J2W8Dk56m" target="_blank">Discord</a>
             </div>
             <p>&copy; 2026 Quantum Imperium Core Team — The Ethereum Backup Plan</p>
-            <p style="margin-top: 8px; font-size: 13px;">
+            <p style="margin-top: 8px; font-size: 11px;">
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium/blob/main/LICENSE">MIT License</a> &middot;
                 <a href="https://github.com/Dev-Ceo26/quantum-imperium">Source Code</a>
             </p>
