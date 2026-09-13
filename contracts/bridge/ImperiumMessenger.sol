@@ -41,6 +41,7 @@ contract ImperiumMessenger {
         for (uint256 i = 0; i < signatures.length; i++) {
             address signer = ethHash.recover(signatures[i]);
 
+            // forge-lint: disable-next-line(calls-loop)
             if (!registry.isActiveGuardian(signer)) continue;
 
             bool duplicate = false;

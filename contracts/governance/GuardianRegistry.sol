@@ -32,7 +32,9 @@ contract GuardianRegistry is AccessControl, ReentrancyGuard {
     event GuardianSlashed(address indexed guardian, uint256 amount, bytes32 reason);
     event GuardianDeactivated(address indexed guardian);
     event MinStakeUpdated(uint256 oldValue, uint256 newValue);
+    event UnstakeCooldownUpdated(uint256 oldValue, uint256 newValue);
     event UnstakeRequested(address indexed guardian, uint256 availableAt);
+    event UnstakeCancelled(address indexed guardian);
     event GuardianUnstaked(address indexed guardian, uint256 amount);
 
     constructor(address governor, uint256 _minStake) {
@@ -96,6 +98,7 @@ contract GuardianRegistry is AccessControl, ReentrancyGuard {
         external
         onlyRole(GOVERNOR_ROLE)
     {
+        emit UnstakeCooldownUpdated(unstakeCooldown, newCooldown);
         unstakeCooldown = newCooldown;
     }
 
@@ -105,28 +108,40 @@ contract GuardianRegistry is AccessControl, ReentrancyGuard {
         require(guardians[msg.sender].active, "not active");
         require(unstakeRequestedAt[msg.sender] == 0, "already requested");
 
+        // forge-lint: disable-next-line(missing-events-access-control)
         unstakeRequestedAt[msg.sender] = block.timestamp;
         emit UnstakeRequested(msg.sender, block.timestamp + unstakeCooldown);
     }
 
+    function cancelUnstake() external {
+        require(unstakeRequestedAt[msg.sender] != 0, "no request");
+
+        // forge-lint: disable-next-line(missing-events-access-control)
+        unstakeRequestedAt[msg.sender] = 0;
+        emit UnstakeCancelled(msg.sender);
+    }
+
     function executeUnstake() external nonReentrant {
         require(unstakeRequestedAt[msg.sender] != 0, "no request");
-        require(
-            block.timestamp >= unstakeRequestedAt[msg.sender] + unstakeCooldown,
-            "cooldown"
-        );
+
+        uint256 readyAt = unstakeRequestedAt[msg.sender] + unstakeCooldown;
+        // Il cooldown è intenzionale; block.timestamp è sicuro su finestre lunghe.
+        // forge-lint: disable-next-line(block-timestamp)
+        require(block.timestamp >= readyAt, "cooldown");
 
         uint256 amount = guardians[msg.sender].stakedAmount;
         require(amount > 0, "nothing to unstake");
 
         guardians[msg.sender].active = false;
         guardians[msg.sender].stakedAmount = 0;
+
+        // forge-lint: disable-next-line(missing-events-access-control)
         unstakeRequestedAt[msg.sender] = 0;
+
+        emit GuardianUnstaked(msg.sender, amount);
 
         (bool ok, ) = msg.sender.call{value: amount}("");
         require(ok, "transfer failed");
-
-        emit GuardianUnstaked(msg.sender, amount);
     }
 
     // --- View ---
