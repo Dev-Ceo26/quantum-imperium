@@ -1,0 +1,14 @@
+[Unit]
+Description=Reth Validator - Imperium Chain (Testnet 9818)
+After=network.target
+
+[Service]
+Type=simple
+User=imperium-node
+WorkingDirectory=/home/imperium-node/reth
+ExecStart=/home/imperium-node/reth/target/release/reth node --chain /home/imperium-node/genesis-testnet.json --http --http.addr 0.0.0.0 --http.port 30334 --http.api eth,net,web3 --port 30303 --authrpc.port 8551 --dev --dev.block-time 1s
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
