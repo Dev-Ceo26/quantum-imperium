@@ -39,6 +39,7 @@ python3 orchestrator.py
 Rete	Chain ID	RPC	Explorer
 Mainnet	9819	https://rpc.imperiumscan.com	https://imperiumscan.com
 Testnet	9818	https://rpc-testnet.imperiumscan.com	https://imperiumscan.com
+
 📚 Documentation
 Documento	Descrizione
 White Paper	Visione e architettura del progetto
@@ -46,6 +47,7 @@ Guida per i Guardian	Come diventare Guardian
 Guida all'Installazione	Come installare un validatore
 Architettura del Bridge	Come funziona il bridge
 Contributing Guide	Come contribuire
+
 🧩 Architecture
 Componente	Tecnologia	Status
 PQC	Kyber / Dilithium	✅ Implemented
@@ -57,6 +59,7 @@ Execution Client	Reth 2.5.2	✅ Operativo
 Bridge	Multi-sig Guardian	🚧 In development
 Sentinelle AI	Python	✅ Operativo
 Guardian Network	Solidity	🚧 In development
+
 🛣️ Roadmap
 Phase	Description	Target	Status
 Phase 0	Working Prototype	✅ Q1 2026	✅ Completed
@@ -64,10 +67,12 @@ Phase 1	Public Testnet	🔄 Q2 2026	🔄 In Progress
 Phase 2	Ethereum Bridge	📅 Q3 2026	🚧 In development
 Phase 3	Mainnet + DAO	📅 Q4 2026	📅 Planned
 Phase 4	Quantum Layer (PQC)	📅 2027	📅 Planned
+
 🧪 Testnet Deployment
 Token	Rete	Contratto
 tIMP	Testnet (9818)	0xBea13F68aE21Fc20a07FA863FF136756E9031cD0
 IMP	Mainnet (9819)	0x5bC539F6F851d920E96e5f9858763a99D1f18D2b
+
 📄 License
 MIT License
 
