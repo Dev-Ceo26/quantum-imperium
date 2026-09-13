@@ -47,7 +47,18 @@ Phase 3	Mainnet + DAO	📅 Q4 2026
 
 MIT License
 
-🔗 Links
-GitHub: https://github.com/Dev-Ceo26/quantum-imperium
-Twitter: Coming soon
-Discord: https://discord.gg/J2W8Dk56m
+## 🔗 Links
+
+* **Website:** [imperiumchain.com](https://imperiumchain.com/?utm_source=chatgpt.com)
+* **Imperium Scan:** [imperiumscan.com](https://imperiumscan.com/?utm_source=chatgpt.com)
+* **GitHub:** [Quantum Imperium Repository](https://github.com/Dev-Ceo26/quantum-imperium?utm_source=chatgpt.com)
+* **Twitter:** Coming soon
+* **Discord:** https://discord.gg/J2W8Dk56m
+
+---
+
+<p align="center">
+  <strong>Quantum Imperium Core Team</strong><br>
+  <sub>April 2026</sub>
+</p>
+
