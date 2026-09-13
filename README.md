@@ -52,7 +52,7 @@ Website: imperiumchain.com
 Imperium Scan: imperiumscan.com
 GitHub: Quantum Imperium Repository
 Twitter: Coming soon
-Discord: Coming soon
+Discord: (https://discord.gg/J2W8Dk56m)
 ---
 
 <p align="center">
