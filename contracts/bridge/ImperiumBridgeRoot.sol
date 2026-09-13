@@ -1,46 +1,122 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "./ImperiumMessenger.sol";
 
-contract ImperiumBridgeRoot is Ownable, Pausable, ReentrancyGuard {
-    address[] public validators;
-    uint256 public threshold;
-    mapping(bytes32 => bool) public processedMessages;
+/**
+ * @title ImperiumBridgeRoot
+ * @notice Lato Ethereum (L1) del bridge.
+ * @dev NESSUN owner umano. GOVERNOR_ROLE = Timelock della DAO.
+ */
+contract ImperiumBridgeRoot is ReentrancyGuard, AccessControl {
+    using SafeERC20 for IERC20;
+
+    bytes32 public constant GOVERNOR_ROLE = keccak256("GOVERNOR_ROLE");
+
+    ImperiumMessenger public immutable messenger;
+    uint256 public immutable l2ChainId;
+    uint256 public immutable thisChainId;
+
+    mapping(address => bool) public supportedTokens;
     mapping(address => uint256) public maxAmountPerTx;
+    mapping(bytes32 => bool) public processedMessages;
 
-    event DepositInitiated(address indexed token, address indexed sender, uint256 amount, uint256 nonce);
-    event WithdrawalExecuted(bytes32 indexed messageHash, address indexed token, address indexed recipient, uint256 amount);
+    bool public paused;
 
-    constructor(address[] memory _validators, uint256 _threshold) {
-        require(_threshold > 0 && _threshold <= _validators.length, "Invalid threshold");
-        validators = _validators;
-        threshold = _threshold;
+    event DepositInitiated(
+        address indexed sender,
+        address indexed recipient,
+        address indexed token,
+        uint256 amount,
+        uint256 nonce
+    );
+    event WithdrawalFinalized(
+        bytes32 indexed messageHash,
+        address indexed token,
+        address indexed recipient,
+        uint256 amount
+    );
+    event TokenRegistered(address indexed token, uint256 maxAmount);
+    event Paused(bool state);
+
+    modifier notPaused() {
+        require(!paused, "paused");
+        _;
     }
 
-    function deposit(address token, uint256 amount) external whenNotPaused nonReentrant {
-        require(amount > 0 && amount <= maxAmountPerTx[token], "Invalid amount");
-        IERC20(token).transferFrom(msg.sender, address(this), amount);
-        uint256 nonce = uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender, amount)));
-        emit DepositInitiated(token, msg.sender, amount, nonce);
+    constructor(address _messenger, uint256 _l2ChainId, address governor) {
+        require(_messenger != address(0), "messenger zero");
+        require(governor != address(0), "governor zero");
+
+        messenger = ImperiumMessenger(_messenger);
+        l2ChainId = _l2ChainId;
+        thisChainId = block.chainid;
+
+        _grantRole(DEFAULT_ADMIN_ROLE, governor);
+        _grantRole(GOVERNOR_ROLE, governor);
     }
 
-    function executeWithdrawal(address token, address recipient, uint256 amount, uint256 nonce, bytes[] calldata signatures) external whenNotPaused nonReentrant {
-        require(signatures.length >= threshold, "Not enough signatures");
-        bytes32 messageHash = keccak256(abi.encodePacked(token, recipient, amount, nonce));
-        require(!processedMessages[messageHash], "Already processed");
+    // --- Governance ---
+
+    function setPaused(bool state) external onlyRole(GOVERNOR_ROLE) {
+        paused = state;
+        emit Paused(state);
+    }
+
+    function registerToken(address token, uint256 maxAmount)
+        external
+        onlyRole(GOVERNOR_ROLE)
+    {
+        require(token != address(0), "token zero");
+        supportedTokens[token] = true;
+        maxAmountPerTx[token] = maxAmount;
+        emit TokenRegistered(token, maxAmount);
+    }
+
+    // --- Utente ---
+
+    function deposit(address token, address recipient, uint256 amount)
+        external
+        nonReentrant
+        notPaused
+    {
+        require(recipient != address(0), "recipient zero");
+        require(supportedTokens[token], "token not supported");
+        require(amount > 0 && amount <= maxAmountPerTx[token], "invalid amount");
+
+        IERC20(token).safeTransferFrom(msg.sender, address(this), amount);
+
+        uint256 nonce = uint256(
+            keccak256(abi.encodePacked(block.timestamp, msg.sender, amount, block.number))
+        );
+
+        emit DepositInitiated(msg.sender, recipient, token, amount, nonce);
+    }
+
+    function executeWithdrawal(
+        address token,
+        address recipient,
+        uint256 amount,
+        uint256 nonce,
+        bytes[] calldata signatures
+    ) external nonReentrant notPaused {
+        require(recipient != address(0), "recipient zero");
+        require(amount > 0, "amount zero");
+
+        bytes32 messageHash = keccak256(
+            abi.encode(token, recipient, amount, nonce, l2ChainId, thisChainId)
+        );
+        require(!processedMessages[messageHash], "already processed");
+        require(messenger.verifySignatures(messageHash, signatures), "invalid signatures");
+
         processedMessages[messageHash] = true;
-        IERC20(token).transfer(recipient, amount);
-        emit WithdrawalExecuted(messageHash, token, recipient, amount);
-    }
 
-    function setMaxAmountPerTx(address token, uint256 amount) external onlyOwner {
-        maxAmountPerTx[token] = amount;
-    }
+        IERC20(token).safeTransfer(recipient, amount);
 
-    function pause() external onlyOwner { _pause(); }
-    function unpause() external onlyOwner { _unpause(); }
+        emit WithdrawalFinalized(messageHash, token, recipient, amount);
+    }
 }
