@@ -24,6 +24,7 @@
 # Clona il repository
 git clone https://github.com/Dev-Ceo26/quantum-imperium.git
 cd quantum-imperium
+<<<<<<< HEAD
 
 # Installa le dipendenze Python
 pip install -r requirements.txt
@@ -47,7 +48,29 @@ Guida per i Guardian	Come diventare Guardian
 Guida all'Installazione	Come installare un validatore
 Architettura del Bridge	Come funziona il bridge
 Contributing Guide	Come contribuire
+=======
 
+# Installa le dipendenze Python
+pip install -r requirements.txt
+
+# Avvia il nodo Reth (Testnet 9818)
+reth node --chain genesis-testnet.json --http --http.port 30334 --http.api eth,net,web3 --dev --dev.block-time 1s
+>>>>>>> Add bridge contracts, Guardian Registry, docs, scripts, and updated README
+
+# Avvia le sentinelle AI
+cd sentinels
+python3 orchestrator.py
+🌐 Live Networks
+Rete	Chain ID	RPC	Explorer
+Mainnet	9819	https://rpc.imperiumscan.com	https://imperiumscan.com
+Testnet	9818	https://rpc-testnet.imperiumscan.com	https://imperiumscan.com
+📚 Documentation
+Documento	Descrizione
+White Paper	Visione e architettura del progetto
+Guida per i Guardian	Come diventare Guardian
+Guida all'Installazione	Come installare un validatore
+Architettura del Bridge	Come funziona il bridge
+Contributing Guide	Come contribuire
 🧩 Architecture
 Componente	Tecnologia	Status
 PQC	Kyber / Dilithium	✅ Implemented
@@ -59,7 +82,10 @@ Execution Client	Reth 2.5.2	✅ Operativo
 Bridge	Multi-sig Guardian	🚧 In development
 Sentinelle AI	Python	✅ Operativo
 Guardian Network	Solidity	🚧 In development
+<<<<<<< HEAD
 
+=======
+>>>>>>> Add bridge contracts, Guardian Registry, docs, scripts, and updated README
 🛣️ Roadmap
 Phase	Description	Target	Status
 Phase 0	Working Prototype	✅ Q1 2026	✅ Completed
@@ -67,12 +93,18 @@ Phase 1	Public Testnet	🔄 Q2 2026	🔄 In Progress
 Phase 2	Ethereum Bridge	📅 Q3 2026	🚧 In development
 Phase 3	Mainnet + DAO	📅 Q4 2026	📅 Planned
 Phase 4	Quantum Layer (PQC)	📅 2027	📅 Planned
+<<<<<<< HEAD
 
+=======
+>>>>>>> Add bridge contracts, Guardian Registry, docs, scripts, and updated README
 🧪 Testnet Deployment
 Token	Rete	Contratto
 tIMP	Testnet (9818)	0xBea13F68aE21Fc20a07FA863FF136756E9031cD0
 IMP	Mainnet (9819)	0x5bC539F6F851d920E96e5f9858763a99D1f18D2b
+<<<<<<< HEAD
 
+=======
+>>>>>>> Add bridge contracts, Guardian Registry, docs, scripts, and updated README
 📄 License
 MIT License
 
@@ -82,6 +114,7 @@ Website: imperiumchain.com
 Imperium Scan: imperiumscan.com
 
 GitHub: Quantum Imperium Repository
+<<<<<<< HEAD
 
 Twitter: Coming soon
 
@@ -93,3 +126,11 @@ Discord: https://discord.gg/J2W8Dk56m
   <sub>April 2026</sub>
 </p>
 
+=======
+
+Twitter: Coming soon
+
+Discord: https://discord.gg/J2W8Dk56m
+
+<p align="center"> <strong>Quantum Imperium Core Team</strong><br> <sub>April 2026</sub> </p> EOF
+>>>>>>> Add bridge contracts, Guardian Registry, docs, scripts, and updated README
