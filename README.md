@@ -47,7 +47,7 @@ Phase 3	Mainnet + DAO	📅 Q4 2026
 
 MIT License
 
-Links
+🔗 Links
 Website: imperiumchain.com
 Imperium Scan: imperiumscan.com
 GitHub: Quantum Imperium Repository
