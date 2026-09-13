@@ -117,14 +117,14 @@ contract ImperiumBridgeChild is ReentrancyGuard, AccessControl {
         address remoteToken = localToRemote[token];
         require(remoteToken != address(0), "remote not mapped");
 
-        IMintableBurnableToken(token).burnFrom(msg.sender, amount);
-
         uint256 nonce = ++withdrawNonce;
         bytes32 messageHash = keccak256(
             abi.encode(remoteToken, recipient, amount, nonce, thisChainId, l1ChainId)
         );
 
         emit WithdrawalInitiated(msg.sender, recipient, token, amount, nonce, messageHash);
+
+        IMintableBurnableToken(token).burnFrom(msg.sender, amount);
     }
 
     function finalizeDeposit(
@@ -149,8 +149,8 @@ contract ImperiumBridgeChild is ReentrancyGuard, AccessControl {
         address localToken = remoteToLocal[token];
         require(localToken != address(0), "unknown remote token");
 
-        IMintableBurnableToken(localToken).mint(recipient, amount);
-
         emit DepositFinalized(recipient, localToken, amount, nonce, messageHash);
+
+        IMintableBurnableToken(localToken).mint(recipient, amount);
     }
 }

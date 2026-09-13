@@ -26,6 +26,7 @@ contract ImperiumBridgeRoot is ReentrancyGuard, AccessControl {
     mapping(bytes32 => bool) public processedMessages;
 
     bool public paused;
+    uint256 public depositNonce;
 
     event DepositInitiated(
         address indexed sender,
@@ -90,9 +91,7 @@ contract ImperiumBridgeRoot is ReentrancyGuard, AccessControl {
 
         IERC20(token).safeTransferFrom(msg.sender, address(this), amount);
 
-        uint256 nonce = uint256(
-            keccak256(abi.encodePacked(block.timestamp, msg.sender, amount, block.number))
-        );
+        uint256 nonce = ++depositNonce;
 
         emit DepositInitiated(msg.sender, recipient, token, amount, nonce);
     }
