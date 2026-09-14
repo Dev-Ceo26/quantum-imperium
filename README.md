@@ -73,11 +73,11 @@ MIT License
 
 🔗 Links
 
-- **Faucet Testnet:** [https://faucet.imperiumscan.com](https://faucet.imperiumscan.com)
-
 Website: imperiumchain.com
 
 Imperium Scan: imperiumscan.com
+
+[Faucet Testnet](https://faucet.imperiumscan.com)
 
 GitHub: Quantum Imperium Repository
 
