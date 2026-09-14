@@ -8,11 +8,12 @@
   <strong>A quantum-safe, modular Layer-1 blockchain designed to complement Ethereum.</strong>
 </p>
 
-<p align="center">
+<p align="center"> 
   <img src="https://img.shields.io/badge/Quantum--Safe-By%20Default-0A84FF?style=for-the-badge" alt="Quantum Safe">
   <img src="https://img.shields.io/badge/Layer--1-Blockchain-FFD700?style=for-the-badge" alt="Layer 1">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
-</p>
+  <a href="https://faucet.imperiumscan.com" target="_blank">
+  <img src="https://img.shields.io/badge/Faucet-tIMP-7B68EE?style=for-the-badge" alt="Faucet"></p>
 
 > *"Ethereum is the present. We are the future. But the future is already here, and it can coexist with the present."*
 
@@ -76,8 +77,6 @@ MIT License
 Website: imperiumchain.com
 
 Imperium Scan: imperiumscan.com
-
-Gas Testnet <a href="https://faucet.imperiumscan.com" target="_blank">Faucet</a>
 
 GitHub: Quantum Imperium Repository
 
