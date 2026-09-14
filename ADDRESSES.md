@@ -11,6 +11,10 @@
 | **Staking** | `0x5902963aCC81BE695b7FAC379295623E76071c4E` |
 | **Faucet** | `0x41eBa3cc73d07F3ea82E15b77B70a511c599113f` |
 | **GuardianRegistry** | `0x0bc179C2D5793e726016B3938f31f2af53Cb2EDA` |
+| **TimelockController** | `0x13080d47448B672053dc53e7b83b2215015d49f1` |
+| **ImperiumDAO** | `0xB6eF9702245B91332fBb006fA15Df293313bc35D` |
+| **ImperiumMessenger** | `0xd1Cc79DE7410FFfd0eE3ECBAa4c7cd88890E581A` |
+| **ImperiumBridgeChild** | `0xBf3614fFb826fe62dB16c339ED637b0B418FCCF3` |
 | **Deployer** | `0x8d2ed8c03c62407fae385e32121172b3b12ff484` |
 
 ## Mainnet (Chain ID 9819)
@@ -23,6 +27,10 @@
 | **Factory** | (da deployare) |
 | **Staking** | (da deployare) |
 | **GuardianRegistry** | (da deployare) |
+| **TimelockController** | (da deployare) |
+| **ImperiumDAO** | (da deployare) |
+| **ImperiumMessenger** | (da deployare) |
+| **ImperiumBridgeChild** | (da deployare) |
 
 ## Link Utili
 
