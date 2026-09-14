@@ -77,7 +77,7 @@ Website: imperiumchain.com
 
 Imperium Scan: imperiumscan.com
 
-[Faucet Testnet](https://faucet.imperiumscan.com)
+Gas Testnet <a href="https://faucet.imperiumscan.com" target="_blank">Faucet</a>
 
 GitHub: Quantum Imperium Repository
 
