@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/Quantum--Safe-By%20Default-0A84FF?style=for-the-badge" alt="Quantum Safe">
   <img src="https://img.shields.io/badge/Layer--1-Blockchain-FFD700?style=for-the-badge" alt="Layer 1">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
-  <a href="https://faucet.imperiumscan.com" target="_blank">
+  <a href="https://faucet.imperiumscan.com" target="_blank" rel="noopener noreferrer">
   <img src="https://img.shields.io/badge/Faucet-tIMP-7B68EE?style=for-the-badge" alt="Faucet"></p>
 
 > *"Ethereum is the present. We are the future. But the future is already here, and it can coexist with the present."*
