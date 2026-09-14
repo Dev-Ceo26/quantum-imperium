@@ -72,6 +72,9 @@ IMP	Mainnet (9819)	0x5bC539F6F851d920E96e5f9858763a99D1f18D2b
 MIT License
 
 🔗 Links
+
+- **Faucet Testnet:** [https://faucet.imperiumscan.com](https://faucet.imperiumscan.com)
+
 Website: imperiumchain.com
 
 Imperium Scan: imperiumscan.com
