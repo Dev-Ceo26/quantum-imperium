@@ -10,6 +10,7 @@
 | **Factory** | `0x96430E1660F546bF8f14772A093A6aCfb8e15e80` |
 | **Staking** | `0x5902963aCC81BE695b7FAC379295623E76071c4E` |
 | **Faucet** | `0x41eBa3cc73d07F3ea82E15b77B70a511c599113f` |
+| **GuardianRegistry** | `0x0bc179C2D5793e726016B3938f31f2af53Cb2EDA` |
 | **Deployer** | `0x8d2ed8c03c62407fae385e32121172b3b12ff484` |
 
 ## Mainnet (Chain ID 9819)
@@ -21,22 +22,13 @@
 | **FeeDistributor** | (da deployare) |
 | **Factory** | (da deployare) |
 | **Staking** | (da deployare) |
+| **GuardianRegistry** | (da deployare) |
 
-## Rete
+## Link Utili
 
-- **RPC Testnet:** https://rpc-testnet.imperiumscan.com
-- **RPC Mainnet:** https://rpc.imperiumscan.com
-- **Chain ID Testnet:** 9818 (`0x265a`)
-- **Chain ID Mainnet:** 9819 (`0x265b`)
-
-## Token
-
-| Token | Rete | Supply iniziale | Cap massimo | Mintable | Burnable | Votes |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **tIMP** | Testnet | 100.000.000 | 1.000.000.000 | ✅ | ✅ | ✅ |
-| **IMP** | Mainnet | 100.000.000 | 1.000.000.000 | ✅ | ✅ | ✅ |
-
-## Governance
-
-- **Owner attuale:** `0x8d2ed8c03c62407fae385e32121172b3b12ff484`
-- **Futuro:** DAO (dopo deploy di `ImperiumDAO` + `TimelockController`)
+| Risorsa | URL |
+| :--- | :--- |
+| **Faucet Testnet** | <a href="https://faucet.imperiumscan.com" target="_blank" rel="noopener noreferrer">Faucet</a> |
+| **RPC Testnet** | https://rpc-testnet.imperiumscan.com |
+| **RPC Mainnet** | https://rpc.imperiumscan.com |
+| **Sito** | https://imperiumscan.com |
