@@ -21,6 +21,7 @@
 
 | Contratto | Indirizzo |
 | :--- | :--- |
+| **tIMP** | `0x96430E1660F546bF8f14772A093A6aCfb8e15e80` |
 | **GuardianRegistry** | `0xBea13F68aE21Fc20a07FA863FF136756E9031cD0` |
 | **ImperiumMessenger** | `0x155CF116dfbfA2c5F10F73137755051F1ECF40b9` |
 | **ImperiumBridgeRoot** | `0x63B3b910be2Ef843dbE920Df2CcC032fe5143A6B` |
