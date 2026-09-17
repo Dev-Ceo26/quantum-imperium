@@ -13,8 +13,8 @@
 | **GuardianRegistry** | `0x0bc179C2D5793e726016B3938f31f2af53Cb2EDA` |
 | **TimelockController** | `0x13080d47448B672053dc53e7b83b2215015d49f1` |
 | **ImperiumDAO** | `0xB6eF9702245B91332fBb006fA15Df293313bc35D` |
-| **ImperiumMessenger** | `0xd1Cc79DE7410FFfd0eE3ECBAa4c7cd88890E581A` |
-| **ImperiumBridgeChild** | `0xBf3614fFb826fe62dB16c339ED637b0B418FCCF3` |
+| **ImperiumMessenger** | `0xb24448dCB713728f1d5ADf6b0a6BA707C5893762` |
+| **ImperiumBridgeChild** | `0x4D91F584A3f677864f25e7b5cbc45399C5109Edc` |
 | **Deployer** | `0x8d2ed8c03c62407fae385e32121172b3b12ff484` |
 
 ## Sepolia (Chain ID 11155111)
@@ -22,9 +22,9 @@
 | Contratto | Indirizzo |
 | :--- | :--- |
 | **tIMP** | `0x96430E1660F546bF8f14772A093A6aCfb8e15e80` |
-| **GuardianRegistry** | `0xBea13F68aE21Fc20a07FA863FF136756E9031cD0` |
-| **ImperiumMessenger** | `0x155CF116dfbfA2c5F10F73137755051F1ECF40b9` |
-| **ImperiumBridgeRoot** | `0x63B3b910be2Ef843dbE920Df2CcC032fe5143A6B` |
+| **GuardianRegistry** | `0x9284633a660D1c2a494F6Ad43C1569E349D578C1` |
+| **ImperiumMessenger** | `0x9053108677255F4982d8807C4D156e02306d3f80` |
+| **ImperiumBridgeRoot** | `0x6aF62321d6576FB14eF7C2934CC177301A013dfe` |
 
 ## Mainnet Imperium (Chain ID 9819)
 
