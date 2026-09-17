@@ -1,6 +1,6 @@
 # Indirizzi Ufficiali — Quantum Imperium
 
-## Testnet (Chain ID 9818)
+## Testnet Imperium (Chain ID 9818)
 
 | Contratto | Indirizzo |
 | :--- | :--- |
@@ -17,7 +17,15 @@
 | **ImperiumBridgeChild** | `0xBf3614fFb826fe62dB16c339ED637b0B418FCCF3` |
 | **Deployer** | `0x8d2ed8c03c62407fae385e32121172b3b12ff484` |
 
-## Mainnet (Chain ID 9819)
+## Sepolia (Chain ID 11155111)
+
+| Contratto | Indirizzo |
+| :--- | :--- |
+| **GuardianRegistry** | `0xBea13F68aE21Fc20a07FA863FF136756E9031cD0` |
+| **ImperiumMessenger** | `0x155CF116dfbfA2c5F10F73137755051F1ECF40b9` |
+| **ImperiumBridgeRoot** | `0x63B3b910be2Ef843dbE920Df2CcC032fe5143A6B` |
+
+## Mainnet Imperium (Chain ID 9819)
 
 | Contratto | Indirizzo |
 | :--- | :--- |
@@ -39,4 +47,5 @@
 | **Faucet Testnet** | <a href="https://faucet.imperiumscan.com" target="_blank" rel="noopener noreferrer">Faucet</a> |
 | **RPC Testnet** | https://rpc-testnet.imperiumscan.com |
 | **RPC Mainnet** | https://rpc.imperiumscan.com |
+| **RPC Sepolia** | https://ethereum-sepolia-rpc.publicnode.com |
 | **Sito** | https://imperiumscan.com |
