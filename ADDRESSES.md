@@ -68,12 +68,17 @@
 - Max supply: 3.000.000.000 tIMPUSD
 - Fee: 0 (disabilitate)
 
-## Factory V2 (Testnet — Chain ID 9818)
+## IMPSWAP V4 (Testnet — Chain ID 9818)
 
 | Contratto | Indirizzo |
-|-----------|-----------|
-| ImperiumFactory (V2) | `0x2Cc23aB3457Ebc4e7b6D7f16D37aF0c05266fDDc` |
-| ImperiumPair impl | `0xc7790e92a2e2926Fc86C4D5c01CD32f6F8363D63` |
-| Pair tIMP/tIMPUSD | `0x2B61F33048C3C440720083600D95fbD3E45Caa85` |
+| :--- | :--- |
+| **ImperiumPoolManager (proxy)** | `0xad33475552a4ffeccae0a1eee2b432552191d61c` |
+| **ImperiumPoolManager (impl)** | `0x1af35bc76661abb9ffc2ee7f1decb10ca69766f7` |
+| **Owner** | `0x8d2ed8c03c62407fae385e32121172b3b12ff484` |
+| **Logo URI** | `https://imperiumscan.com/assets/logo.png` |
 
-⚠️ **Factory V1** (`0x96430E...`) usa `Upgrades.deployUUPSProxy` e **non funziona on-chain**. Usa **Factory V2**.
+**Note:**
+- IMPSWAP V1 su Uniswap V4 (singleton, flash accounting, hooks)
+- UUPS upgradable (solo testnet)
+- Fee default: 0.05% (5 bps)
+- Protocol fee: 10% → Vault
