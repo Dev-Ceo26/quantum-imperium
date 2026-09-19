@@ -88,6 +88,21 @@ ImperiumMessenger	0xb24448dCB713728f1d5ADf6b0a6BA707C5893762
 ImperiumBridgeChild	0x4D91F584A3f677864f25e7b5cbc45399C5109Edc
 Deployer: 0x8d2ed8c03c62407e385e32121172b3b12ff484
 
+### IMPUSD (Imperium USD)
+
+Token stablecoin algoritmico con collateral 50% USDC + 50% USDT.
+
+| Rete | Indirizzo |
+|------|-----------|
+| Testnet (9818) | `0x383D8f17910b0B3000B02BF27Df04C388f6CC3A9` |
+| Mainnet | — (da deployare) |
+
+**Funzioni principali:**
+- `depositReserveAndMint(asset, amount, mintTo)` — deposita collateral e ricevi IMPUSD
+- `burnAndWithdrawReserve(amount)` — brucia IMPUSD e ricevi collateral
+- `getReserveCoverage()` — % di collateralizzazione
+- `isFullyCollateralized()` — true se collateral >= supply
+
 🌉 Bridge Cross-Chain (Sepolia 11155111)
 Contratto	Indirizzo
 tIMP	0x96430E1660F546bF8f14772A093A6aCfb8e15e80

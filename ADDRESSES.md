@@ -50,3 +50,20 @@
 | **RPC Mainnet** | https://rpc.imperiumscan.com |
 | **RPC Sepolia** | https://ethereum-sepolia-rpc.publicnode.com |
 | **Sito** | https://imperiumscan.com |
+
+## IMPUSD Token (Testnet — Chain ID 9818)
+
+| Contratto | Indirizzo |
+|-----------|-----------|
+| IMPUSD (proxy) | `0x383D8f17910b0B3000B02BF27Df04C388f6CC3A9` |
+| IMPUSD (impl) | `0xF21E2bBf739abfDA65561B27F0933107Cb1e186f` |
+| MasterMinter | `0x5E9749A56789Fb1FFcd45ad9076CaFb63698ADBf` |
+| MockUSDC | `0xdEB453Fd9c3Dbe87ABd1e0A2F6c238bE9f470AEA` |
+| MockUSDT | `0x42F898C665ECe6820935c23d3b1F74f7e8B6dA06` |
+
+**Note:**
+- IMPUSD è un token ERC20 upgradeable
+- Collateral: 50% MockUSDC + 50% MockUSDT
+- Decimals: 6
+- Max supply: 3.000.000.000 tIMPUSD
+- Fee: 0 (disabilitate)
