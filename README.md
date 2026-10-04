@@ -122,7 +122,7 @@ Imperium Scan: imperiumscan.com
 
 Explorer Mainnet: explorer.imperiumscan.com
 
-Explorer Testnet: explorer-testnet.imperiumscan.com. [![Faucet](https://img.shields.io/badge/Faucet-tIMP-7B68EE?style=for-the-badge)](https://faucet-testnet.imperiumscan.com)
+[![Faucet](https://img.shields.io/badge/Faucet-tIMP-7B68EE?style=for-the-badge)](https://faucet-testnet.imperiumscan.com)
 Faucet: faucet-testnet.imperiumscan.com
 
 GitHub: Quantum Imperium Repository
