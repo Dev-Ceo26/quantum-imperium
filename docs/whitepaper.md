@@ -103,7 +103,7 @@ This eliminates the problem of stuck transactions that block subsequent nonces.
 
 | Token | Network | Contract |
 | :--- | :--- | :--- |
-| **tIMP** | Testnet (9818) | `0xBea13F68aE21Fc20a07FA863FF136756E9031cD0` |
+| **tIMP** | Testnet (9818) | `0xca774a8e3f1fc70ea1080468bbbd100bf6a77545` |
 | **IMP** | Mainnet (9819) | `0x5bC539F6F851d920E96e5f9858763a99D1f18D2b` |
 
 ---
